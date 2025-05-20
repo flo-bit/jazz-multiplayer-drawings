@@ -29,8 +29,10 @@
 		goto(base + '/?id=' + newPainting.id, {});
 	}
 
+	// old id: co_zNQSuU459j4goZJdGAit732RiN9
+
 	const paintings = $derived(
-		useCoState(Paintings, 'co_zNQSuU459j4goZJdGAit732RiN9', {
+		useCoState(Paintings, 'co_znHD7oXLwpqV5VPCfYiiu5q3XBu', {
 			resolve: {
 				$each: {
 					painting: {
@@ -63,7 +65,7 @@
 		</Button>
 
 		{#if paintings.current}
-			{#each paintings.current.reverse() as painting}
+			{#each paintings.current.reverse().slice(0, 10) as painting}
 				{#if painting.count > 0}
 					<Box class="h-50 p-0">
 						<button
