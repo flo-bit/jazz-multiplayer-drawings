@@ -32,7 +32,7 @@
 	// old id: co_zNQSuU459j4goZJdGAit732RiN9
 
 	const paintings = $derived(
-		useCoState(Paintings, 'co_znHD7oXLwpqV5VPCfYiiu5q3XBu', {
+		useCoState(Paintings, 'co_zFLBdv7QU89Jaq8EJEF9hAWLkPs', {
 			resolve: {
 				$each: {
 					painting: {
@@ -56,7 +56,7 @@
 	<Heading class="mb-4">Multiplayer Drawings</Heading>
 
 	<Alert title="Everything is public" class="mb-8">
-		<p>Please note that all drawings are public and can be viewed and edited by anyone.</p>
+		<p>Please note that all drawings are public and can be viewed and edited by anyone. Also this is just a demo, so your drawings might be deleted at any time.</p>
 	</Alert>
 
 	<div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -65,8 +65,8 @@
 		</Button>
 
 		{#if paintings.current}
-			{#each paintings.current.reverse().slice(0, 10) as painting}
-				{#if painting.count > 0}
+			{#each paintings.current.toReversed() as painting, index (painting.id)}
+				{#if painting.count > 0 && index < 10}
 					<Box class="h-50 p-0">
 						<button
 							class="absolute inset-0 h-full w-full cursor-pointer overflow-hidden transition-all duration-200 hover:scale-105 active:scale-95"
